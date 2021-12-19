@@ -2,20 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
 
-
     <parameter name="login" value="fominaelena"/>
     <parameter name="invalidLogin" value="fo"/>
     <parameter name="invalidEmail" value="123asd@gmail.com"/>
     <parameter name="password" value="1P73BP4Z"/>
     <parameter name="invalidPassword" value="1PZ"/>
 
-    <test verbose="2" preserve-order="true" name="LogIn page">
-                <classes>
-                    <class name="Main.TestSuite.TestLogInPage"/>
-                </classes>
-<!--        <packages>-->
-<!--            <package name="LoginPage"/>-->
-<!--        </packages>-->
+    <test name="LogIn page">
+        <classes>
+            <class name="Main.TestSuite.TestLogInPage"/>
+        </classes>
     </test>
 
     <test name="recovery Page">
