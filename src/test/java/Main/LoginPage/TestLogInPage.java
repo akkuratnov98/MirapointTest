@@ -39,7 +39,7 @@ public class TestLogInPage extends OpenChrome {
 
         SwitchPageFromRecoveryPage fromRecoveryPage = new SwitchPageFromRecoveryPage();
 
-        fromRecoveryPage.switchToLogInPage(driver);
+        fromRecoveryPage.comebackToLogInPage(driver);
     }
 
     @Parameters({"invalidLogin", "password"})
@@ -137,6 +137,16 @@ public class TestLogInPage extends OpenChrome {
         dataInputLoginPage.inputLogin(lengthLogin.toString());
 
         Assert.assertEquals(150, driver.findElement(By.name("user")).getAttribute("value").length());
+    }
+
+    @Test(testName = "Обновить стриацу загрузки нажав на Лого компании", priority = 2)
+    public void reloadLogInPage(){
+        SwitchPageFromLoginPage fromLoginPage = new SwitchPageFromLoginPage();
+        fromLoginPage.reloadLogInPage(driver);
+
+        Assert.assertEquals(new WebDriverWait(driver, Duration.ofSeconds(7))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='info-title']/div")))
+                .getText(), "Вход в систему");
     }
 
 

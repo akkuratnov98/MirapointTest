@@ -16,4 +16,12 @@ public class SwitchPageFromLoginPage {
                 .click();
 
     }
+
+    public void reloadLogInPage(WebDriver driver) {
+
+        new WebDriverWait(driver, Duration.ofSeconds(7))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//img[@src='Logo/Login']")))
+                .click();
+
+    }
 }

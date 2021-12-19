@@ -55,12 +55,12 @@ public class TestRecoveryPage extends OpenChrome {
                 "На ваш электронный адрес отправлена инструкция по восстановлению пароля.");
     }
 
-    @Test(testName = "Переход на стриницу Авторизации", priority = 2)
+    @Test(testName = "Возврат на стриницу Авторизации", priority = 2)
     public void switchToLogInPage() {
 
         SwitchPageFromRecoveryPage fromRecoveryPage = new SwitchPageFromRecoveryPage();
 
-        fromRecoveryPage.switchToLogInPage(driver);
+        fromRecoveryPage.comebackToLogInPage(driver);
 
         Assert.assertEquals(new WebDriverWait(driver, Duration.ofSeconds(7))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='info-title']/div")))
@@ -69,6 +69,16 @@ public class TestRecoveryPage extends OpenChrome {
         SwitchPageFromLoginPage pageFromLoginPage = new SwitchPageFromLoginPage();
 
         pageFromLoginPage.switchToRecoveryPage(driver);
+    }
+
+    @Test(testName = "Переход на страницу авторизации через Logo компании", priority = 2)
+    public void goToLogInPage(){
+        SwitchPageFromRecoveryPage fromRecoveryPage = new SwitchPageFromRecoveryPage();
+        fromRecoveryPage.goToLogInPageFromLogo(driver);
+
+        Assert.assertEquals(new WebDriverWait(driver, Duration.ofSeconds(7))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='info-title']/div")))
+                .getText(), "Вход в систему");
     }
 
     public void enterLoginOrEmail(String login){
