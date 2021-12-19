@@ -3,11 +3,8 @@ package Main.TestSuite;
 import Main.Page.LogInPage;
 import Main.Page.MainPage;
 import Main.Page.PasswordRecoveryPage;
-import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -17,13 +14,9 @@ import org.testng.annotations.Test;
 import java.nio.file.Paths;
 import java.time.Duration;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
-
-
 public class TestLogInPage {
 
     public ChromeDriver driver;
-
     LogInPage logInPage;
     PasswordRecoveryPage passwordRecoveryPage;
     MainPage mainPage;
@@ -79,7 +72,6 @@ public class TestLogInPage {
         Assert.assertEquals("Неверные данные для авторизации.", logInPage.getTextAlert()); //При пустых полях появляется точка
     }
 
-
     @Parameters({"login", "invalidPassword"})
     @Test(testName = "Неверный Ввод Логина пользователя для авторизации", priority = 1)
     public void invalidPasswordTest(String login, String password){
@@ -109,7 +101,6 @@ public class TestLogInPage {
         Assert.assertEquals("password", logInPage.passwordFieldElementAttribute("type"));
     }
 
-
     @Test(testName = "Проверка максимальной длины input login", priority = 1)
     public void testMaxLengthLogin(){
         StringBuilder lengthLogin = new StringBuilder();
@@ -129,9 +120,6 @@ public class TestLogInPage {
         Thread.sleep(2000);
         driver.close();
     }
-
-
-
 }
 
 

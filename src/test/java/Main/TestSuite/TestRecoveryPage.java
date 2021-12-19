@@ -17,7 +17,6 @@ import java.time.Duration;
 public class TestRecoveryPage {
 
     public ChromeDriver driver;
-
     LogInPage logInPage;
     PasswordRecoveryPage passwordRecoveryPage;
 
@@ -73,8 +72,6 @@ public class TestRecoveryPage {
         passwordRecoveryPage.clickEnter();
         Assert.assertEquals(passwordRecoveryPage.waitDivSuccess(), "На ваш электронный адрес отправлена инструкция по восстановлению пароля.");
     }
-
-
 
     @AfterTest
     public void closeBrowser() throws InterruptedException {

@@ -5,10 +5,8 @@ import org.openqa.selenium.WebDriver;
 
 public class PasswordRecoveryPage extends BasePage{
 
-    //By loginOrEmailField = By.name("loginOrEmail");
-
-    By divFailed = By.xpath("//div[@class='alert']");
-    By divSuccess = By.xpath("//div[@class='success']");
+    By failedDiv = By.xpath("//div[@class='alert']");
+    By successDiv = By.xpath("//div[@class='success']");
     By logoLoginHREF = By.xpath("//img[@src='Logo/Login']");
     By infoTitle = By.xpath("//div[@class='info-title']");
     By loginOrEmailField = By.xpath("//input[@name='loginOrEmail']");
@@ -28,11 +26,11 @@ public class PasswordRecoveryPage extends BasePage{
     }
 
     public String waitDivFailed(){
-         return getTextElement(divFailed);
+         return getTextElement(failedDiv);
     }
 
     public String waitDivSuccess(){
-         return getTextElement(divSuccess);
+         return getTextElement(successDiv);
     }
 
     public void reloadLogInPageWithLogo(){
