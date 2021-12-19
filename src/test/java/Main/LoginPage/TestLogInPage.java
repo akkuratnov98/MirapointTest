@@ -82,7 +82,7 @@ public class TestLogInPage extends OpenChrome {
 
         dataInputLoginPage.enterLoginPage();
 
-        Assert.assertEquals("Неверные данные для авторизации.", dataInputLoginPage.getTextAlert());
+        Assert.assertEquals("Неверные данные для авторизации.", dataInputLoginPage.getTextAlert()); //При пустых полях появляется точка
 
     }
 
@@ -96,7 +96,7 @@ public class TestLogInPage extends OpenChrome {
 
         dataInputLoginPage.enterLoginPage();
 
-        Assert.assertEquals("Неверные данные для авторизации", dataInputLoginPage.getTextAlert());
+        Assert.assertEquals("Неверные данные для авторизации", dataInputLoginPage.getTextAlert()); //При пустых полях появляется точка
 
     }
 
