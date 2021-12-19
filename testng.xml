@@ -9,17 +9,19 @@
     <parameter name="password" value="1P73BP4Z"/>
     <parameter name="invalidPassword" value="1PZ"/>
 
-    <test verbose="2" preserve-order="true" name="C:/Users/Ivan/IdeaProjects/MirapolisTest">
+    <test verbose="2" preserve-order="true" name="LogIn page">
                 <classes>
-                    <class name="Main.LoginPage.TestLogInPage"/>
+                    <class name="Main.TestSuite.TestLogInPage"/>
                 </classes>
 <!--        <packages>-->
 <!--            <package name="LoginPage"/>-->
 <!--        </packages>-->
     </test>
-    <test name="recovery PAge">
+
+    <test name="recovery Page">
         <classes>
-            <class name="Main.PasswordRecoveryPage.TestRecoveryPage"/>
+            <class name="Main.TestSuite.TestRecoveryPage"/>
         </classes>
     </test>
+
 </suite>
