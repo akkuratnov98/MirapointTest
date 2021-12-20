@@ -16,13 +16,12 @@ import java.time.Duration;
 
 public class TestRecoveryPage {
 
-    public ChromeDriver driver;
+    ChromeDriver driver;
     LogInPage logInPage;
     PasswordRecoveryPage passwordRecoveryPage;
 
     @BeforeTest
-    public void SwitchToRecoveryPage() {
-        try {
+    public void switchToRecoveryPage() {
             System.setProperty("webdriver.chrome.driver", String.valueOf(Paths.get("src/main/resources/tools/chromedriver.exe")));
             driver = new ChromeDriver();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -30,9 +29,6 @@ public class TestRecoveryPage {
             logInPage = PageFactory.initElements(driver, LogInPage.class);
             passwordRecoveryPage = PageFactory.initElements(driver, PasswordRecoveryPage.class);
             logInPage.switchToRecoveryPage();
-        } catch (Exception e) {
-            System.out.println("Не удалось открыть страницу сайта");
-        }
     }
 
     @Parameters({"invalidEmail"})

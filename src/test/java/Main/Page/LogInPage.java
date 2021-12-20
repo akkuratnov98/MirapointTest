@@ -25,12 +25,12 @@ public class LogInPage extends BasePage{
         click(elementShowPassword);
     }
 
-    public String passwordFieldElementAttribute(String attribute){
-        return getElementAttribute(passwordField, attribute);
+    public String getPasswordFieldType(){
+        return getElementAttribute(passwordField, "type");
     }
 
-    public String loginFieldAttribute(String attribute){
-        return getElementAttribute(loginField, attribute);
+    public String getLoginFieldValue(){
+        return getElementAttribute(loginField, "value");
     }
 
     public void inputLogin(String login){

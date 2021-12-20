@@ -16,14 +16,13 @@ import java.time.Duration;
 
 public class TestLogInPage {
 
-    public ChromeDriver driver;
+    ChromeDriver driver;
     LogInPage logInPage;
     PasswordRecoveryPage passwordRecoveryPage;
     MainPage mainPage;
 
     @BeforeTest
     public void openLogIn() {
-        try {
             System.setProperty("webdriver.chrome.driver", String.valueOf(Paths.get("src/main/resources/tools/chromedriver.exe")));
             driver = new ChromeDriver();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -31,13 +30,11 @@ public class TestLogInPage {
             mainPage = PageFactory.initElements(driver, MainPage.class);
             logInPage = PageFactory.initElements(driver, LogInPage.class);
             passwordRecoveryPage = PageFactory.initElements(driver, PasswordRecoveryPage.class);
-        } catch (Exception e) {
-            System.out.println("Не удалось открыть страницу сайта");
-        }
     }
 
+
     @Test(testName = "Переход на страницу востановления пароля", priority = 2)
-    public void SwitchToRecoveryPage(){
+    public void switchToRecoveryPage(){
         logInPage.switchToRecoveryPage();
         Assert.assertEquals(passwordRecoveryPage.getInfoTitleText(), "Восстановление пароля");
         logInPage.goToLogInPage();
@@ -94,11 +91,11 @@ public class TestLogInPage {
 
     @Test(testName = "Кнопка показа пароля", priority = 1)
     public void showPassword(){
-        Assert.assertEquals("password", logInPage.passwordFieldElementAttribute("type"));
+        Assert.assertEquals("password", logInPage.getPasswordFieldType());
         logInPage.clickShowPassword();
-        Assert.assertEquals("text", logInPage.passwordFieldElementAttribute("type"));
+        Assert.assertEquals("text", logInPage.getPasswordFieldType());
         logInPage.clickShowPassword();
-        Assert.assertEquals("password", logInPage.passwordFieldElementAttribute("type"));
+        Assert.assertEquals("password", logInPage.getPasswordFieldType());
     }
 
     @Test(testName = "Проверка максимальной длины input login", priority = 1)
@@ -106,7 +103,7 @@ public class TestLogInPage {
         StringBuilder lengthLogin = new StringBuilder();
         lengthLogin.append("0123456789".repeat(16));
         logInPage.inputLogin(lengthLogin.toString());
-        Assert.assertEquals(150, logInPage.loginFieldAttribute("value").length());
+        Assert.assertEquals(150, logInPage.getLoginFieldValue().length());
     }
 
     @Test(testName = "Обновить стриацу загрузки нажав на Лого компании", priority = 2)
